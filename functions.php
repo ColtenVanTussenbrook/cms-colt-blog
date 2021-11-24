@@ -25,7 +25,6 @@ function register_post_type_portfolio () {
     'labels' => $labels,
     'has_archive' => true,
     'public' => true,
-    'hierarchical' => false,
     'supports' => array(
         'title',
         'editor',
@@ -36,6 +35,10 @@ function register_post_type_portfolio () {
     ),
     'taxonomies' => array('category'),
     'rewrite' => array( 'slug' => 'portfolio-items' ),
+    'show_in_graphql' => true,
+    'hierarchical' => true,
+    'graphql_single_name' => 'portfolio',
+    'graphql_plural_name' => 'portfolio-items',
     );
 
     register_post_type( 'portfolio-items', $args );
